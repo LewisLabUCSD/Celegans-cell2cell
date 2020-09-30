@@ -56,10 +56,10 @@ Jupyter notebooks can be open by executing the following command from the folder
 jupyter notebook
 ```
 
-* Analyses have to be run in the order below:
+* Analyses have to be run in the order below (although we provided the results of each step, so analyses can be run skipping previous steps) :
 1. [Generate list of ligands-receptors interactions from orthologs](./Notebooks/01.Generate-Celegans-LRs.ipynb).
 Then, a manual-curation is needed. 
-**This step can be omitted since we provided a [manual curated list](./Data/PPI-Networks/Celegans-Curated-LR-pairs.xlsx)**
+**This step can be skipped since we provided a [manual curated list](./Data/PPI-Networks/Celegans-Curated-LR-pairs.xlsx)**
 2. [Compute intercellular distances and classify cell pairs by ranges of distances.](./Notebooks/02.Celegans-Cells-3D-Map.ipynb)
 3. [Compute cell-cell interactions and communication for the curated ligand-receptor interactions.](./Notebooks/03.CCI-Curated-LRs.ipynb)
 4. Run the genetic algorithm to select important ligand-receptor pairs for obtaining a better correlation
@@ -70,6 +70,8 @@ between CCI scores and intercellular distance:
         ``` 
      *Note: This step can take between 2-5 days, depending on the number of iterations assigned
       in the nested for loops in the .sh file. By default, it runs 100 times the GA, distributed in 10 cores.
+      
+      **This step can be skipped since we provided [the results of 100 runs of the genetic algorithm](./Data/GA/)**
 5. [Examine results from the genetic algorithm, select ligand-receptor pairs and perform enrichment analysis on their functions.](./Notebooks/05.Examine-GA-Results.ipynb)
 6. [Compute cell-cell interactions and communication for the GA-selected ligand-receptor interactions.](./Notebooks/06.CCI-Selected-LRs.ipynb)
 7. [Perform permutation analyses on GA-selected ligand-receptor pairs.](./Notebooks/07.Permutation-Analysis-LRs.ipynb)
