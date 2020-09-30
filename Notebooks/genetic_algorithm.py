@@ -89,6 +89,8 @@ def run_genetic_algorithm(ppi_data,
     from pyevolve import Selectors
     from pyevolve import Mutators
 
+    print('Starting a new run of the genetic algorithm')
+
     results = dict()
 
     ref_distance_vector = scipy.spatial.distance.squareform(
