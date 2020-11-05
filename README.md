@@ -26,6 +26,8 @@ pip install 'cell2cell==0.2.2'
 
 ### Installing PyEvolve
 
+*(This library is required in the script 4)*
+
 [Install github](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
 
 Install a python 3 compatible version of PyEvolve:
@@ -34,12 +36,16 @@ pip install git+https://github.com/BubaVV/Pyevolve
 ```
 ### Installing obonet
 
+*(This library is required in the notebook 10)*
+
 Run:
 ```
 pip install obonet
 ```
 
 ### Installing umap
+
+*(This library is required in the notebook 11)*
 
 Run:
 ```
