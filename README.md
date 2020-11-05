@@ -1,8 +1,7 @@
 # Evaluating cell-cell interactions and communication in C. elegans
 
 ## Installation
-This tutorial works with Linux and macOS. For Windows, all jupyter notebooks work, the exception is the
-step 4, with the genetic algorithm.
+This tutorial works on Linux and macOS. All jupyter notebooks work on Windows, but the step 4 works only on Unix-based OS.
 
 ### Installing Anaconda
 
@@ -78,3 +77,4 @@ between CCI scores and intercellular distance:
 8. [Evaluate active ligand-receptor interactions along the body of C. elegans. Assess enrichment/depletion.](./Notebooks/08.Anteroposterior-Enrichment.ipynb)
 9. [Evaluate enrichment/depletion of ligand-receptor pairs given their use in different ranges of distance.](./Notebooks/09.Distance-Ranges-Enrichment.ipynb)
 10. [Evaluate enrichment of phenotypes on the genes in the GA-selected list of ligand-receptor pairs.](./Notebooks/10.Phenotype-Association.ipynb)
+11. [Generate UMAP plots based on Jaccard distance of pairs of cells given active LR pairs.](./Notebooks/11.CCC-UMAP-Visualization.ipynb)
