@@ -39,6 +39,13 @@ Run:
 pip install obonet
 ```
 
+### Installing umap
+
+Run:
+```
+pip install umap-learn
+```
+
 ## Run/Explore the analyses
 
 If the environment cell2cell is not active, activate it:
