@@ -1,5 +1,12 @@
 # Evaluating cell-cell interactions and communication in C. elegans
 
+## How to cite:
+
+Armingol E., Joshi C.J., Baghdassarian H., Shamie I., Ghaddar A., Chan J.,
+ Her H.L., O’Rourke E.J., Lewis N.E. 
+ [Inferring the spatial code of cell-cell interactions and communication across a whole animal body](https://doi.org/10.1101/2020.11.22.392217).
+  *bioRxiv*, (2020). **DOI: 10.1101/2020.11.22.392217**
+
 ## Installation
 This tutorial works on Linux and macOS. All jupyter notebooks work on Windows, but the step 4 works only on Unix-based OS.
 
