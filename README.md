@@ -41,13 +41,13 @@ Install a python 3 compatible version of PyEvolve:
 ```
 pip install git+https://github.com/BubaVV/Pyevolve
 ```
-### Installing obonet
+### Installing Enrichment Analysis for C. elegans
 
 *(This library is required in the notebook 10)*
 
 Run:
 ```
-pip install obonet
+pip install tissue_enrichment_analysis
 ```
 
 ### Installing umap
@@ -96,5 +96,5 @@ between CCI scores and intercellular distance:
 7. [Perform permutation analyses on GA-selected ligand-receptor pairs.](./Notebooks/07.Permutation-Analysis-LRs.ipynb)
 8. [Evaluate active ligand-receptor interactions along the body of C. elegans. Assess enrichment/depletion.](./Notebooks/08.Anteroposterior-Enrichment.ipynb)
 9. [Evaluate enrichment/depletion of ligand-receptor pairs given their use in different ranges of distance.](./Notebooks/09.Distance-Ranges-Enrichment.ipynb)
-10. [Evaluate enrichment of phenotypes on the genes in the GA-selected list of ligand-receptor pairs.](./Notebooks/10.Phenotype-Association.ipynb)
+10. [Evaluate enrichment of phenotypes on the genes in the GA-selected list of ligand-receptor pairs.](./Notebooks/10.Phenotype-Enrichment.ipynb)
 11. [Generate UMAP plots based on Jaccard distance of pairs of cells given active LR pairs.](./Notebooks/11.CCC-UMAP-Visualization.ipynb)
