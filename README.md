@@ -28,7 +28,7 @@ conda activate cell2cell
 
 Then, install cell2cell:
 ```
-pip install 'cell2cell==0.2.2'
+pip install 'cell2cell==0.3.0'
 ```
 
 ### Installing PyEvolve
