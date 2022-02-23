@@ -1,3 +1,15 @@
+import argparse
+
+parser = argparse.ArgumentParser(description='Specify all inputs necessary for running the Genetic Algorithm Analysis.')
+parser.add_argument("-s", "--score", dest="score", type=str, required=False, default="bray_curtis", choices=['bray_curtis', 'count', 'jaccard'], help="CCI score to use")
+parser.add_argument("-o", "--output_folder", dest="output_folder", type=str, required=False, default="GA", help="Full path to the folder where the results will be output (optional)")
+parser.add_argument("-r", "--runs", dest="runs", type=int, required=False, default=100, help="Number of runs of the GA")
+parser.add_argument("-c", "--cores", dest="cores", type=int, required=False, default=10, help="Number of cores to perform the all GA runs")
+
+args = parser.parse_args()
+
+import os
+
 import cell2cell as c2c
 import numpy as np
 import pandas as pd
@@ -5,7 +17,6 @@ import pandas as pd
 import scipy
 import json
 import uuid
-import os
 
 # SETUP
 currentdir = os.path.dirname(os.path.realpath(__file__))
@@ -13,6 +24,9 @@ parentdir = os.path.dirname(currentdir)  +  '/'
 currentdir +=  '/'
 
 data_folder = parentdir + '/Data/'
+output_folder = data_folder + '/' + args.output_folder + '/'
+if not os.path.isdir(output_folder):
+    os.mkdir(output_folder)
 
 files = dict()
 files['rnaseq'] = data_folder + '/RNA-Seq/Celegans_RNASeqData_Cell.xlsx'
@@ -38,7 +52,7 @@ cutoff_setup['parameter'] = 10 # TPM
 
 analysis_setup = dict()
 analysis_setup['communication_score'] = 'expression_thresholding'
-analysis_setup['cci_score'] = 'bray_curtis'
+analysis_setup['cci_score'] = args.score
 analysis_setup['cci_type'] = 'undirected'
 
 # Load Files
@@ -49,8 +63,7 @@ rnaseq_data = c2c.io.load_rnaseq(rnaseq_file=files['rnaseq'],
                                  format='auto')
 
 meta = c2c.io.load_metadata(metadata_file=files['metadata'],
-                            rnaseq_data=rnaseq_data,
-                            sample_col=meta_setup['sample_col'],
+                            cell_labels=list(rnaseq_data.columns),
                             format='auto')
 
 ppi_data = c2c.io.load_ppi(ppi_file=files['ppi'],
@@ -197,19 +210,41 @@ def run_genetic_algorithm(ppi_data,
 
         runs_ += 1
     return results
+    
+    
+def run_ga(inputs):
+    ga_results = run_genetic_algorithm(ppi_data=inputs['ppi_data'],
+                                       physical_distance=inputs['physical_distance'],
+                                       included_cells=inputs['included_cells'],
+                                       population_size=inputs['population_size'],
+                                       generations=inputs['generations'],
+                                       inc_percentage=inputs['inc_percentage'],
+                                       runs=inputs['runs'],
+                                       verbose=inputs['verbose']
+                                       )
+    return ga_results
+
+from multiprocessing import Pool
 
 if __name__ == "__main__":
-    filename = data_folder + '/GA/' + str(uuid.uuid4())
+    
+    inputs = {'ppi_data' : ppi_data, 'physical_distance' : physical_distance, 'included_cells' : included_cells,
+              'population_size' : 200, 'generations' : 200, 'inc_percentage' : 0.025, 'runs' : None, 'verbose' : False}
+    
+    n_jobs = args.cores
+    if n_jobs > args.runs:
+        n_jobs = args.runs
+    
+    batches = int(np.ceil(args.runs/n_jobs))
+    
+    for i in range(batches):
+        print(f'Running batch {i} of {len(batches)}')
+        with Pool(n_jobs) as p:
+            input_ = [inputs]*n_jobs
+            results = p.map(run_ga, input_)
 
-    ga_results = run_genetic_algorithm(ppi_data,
-                                       physical_distance,
-                                       included_cells,
-                                       population_size=200,
-                                       generations=200,
-                                       inc_percentage=0.025,
-                                       runs=None,
-                                       verbose=False
-                                       )
-
-    with open(filename + '.json', 'w') as fp:
-        json.dump(ga_results, fp)
+        for r in results:
+            filename = output_folder + str(uuid.uuid4())
+            with open(filename + '.json', 'w') as fp:
+                   json.dump(r, fp)
+        print('')
