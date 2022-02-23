@@ -1,17 +1,17 @@
-# Evaluating cell-cell interactions and communication in C. elegans
+# Inferring a spatial code of cell-cell interactions across a whole animal body
 
 ## How to cite:
 
-- Armingol E., Joshi C.J., Baghdassarian H., Shamie I., Ghaddar A., Chan J.,
+- Armingol E., Ghaddar A., Joshi C.J., Baghdassarian H., Shamie I., Chan J.,
  Her H.L., O’Rourke E.J., Lewis N.E. 
- [Inferring the spatial code of cell-cell interactions and communication across a whole animal body](https://doi.org/10.1101/2020.11.22.392217).
-  *bioRxiv*, (2020). **DOI: 10.1101/2020.11.22.392217**
+ [Inferring a spatial code of cell-cell interactions across a whole animal bodys](https://doi.org/10.1101/2020.11.22.392217).
+  *bioRxiv*, (2020). **DOI: https://doi.org/10.1101/2020.11.22.392217**
 
 ## Installation
 
-All the analysis in this repository can be run on a **CodeOcean capsule** for reproducible results (estimated time: 2:30 hr): 
+All the analyses in this repository can be run on a **CodeOcean capsule** for reproducible results (estimated running time: 2:20 hr): https://doi.org/10.24433/CO.4688840.v1
 
-If you are interested in running everything locally, follow the instructions below.
+If you are interested in running everything ***locally***, follow the ***instructions below***.
 
 ### Installing Anaconda
 
@@ -33,12 +33,11 @@ Activate that environment:
 conda activate cell2cell
 ```
 
-Then, install all dependencies for reproducibility:
+Then, install all dependencies:
 ```
-pip install 'numba==0.55.1'
-pip install 'umap-learn==0.5.2'
+pip install numba
+pip install umap-learn
 pip install 'matplotlib==3.2.0'
-pip install 'numpy==1.21.0'
 pip install cell2cell
 pip install git+https://github.com/BubaVV/Pyevolve
 pip install tissue_enrichment_analysis
@@ -97,4 +96,7 @@ between CCI scores and intercellular distance:
 14. [Compare GA-based selection of LR pairs by using either Bray-Curtis-like score or LR count score](./Notebooks/14.CCI-Score-Comparison.ipynb)
 
 
-**Disclaimer:** Results from the jupyter notebooks may change depending on the installed versions of the dependencies of the respective analyses.
+**Disclaimer:** Figures from the jupyter notebooks may differ from those in the paper,
+depending on the installed versions of the dependencies of the respective analyses.
+The same might happen with certain results that depends on external tools.
+**For ensuring the figures look the same, use the CodeOcean capsule instead.**
