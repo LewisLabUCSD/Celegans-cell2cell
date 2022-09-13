@@ -103,7 +103,7 @@ between CCI scores and intercellular distance:
      *Note: This step can take between 1-2 days, depending on the number of iterations assigned
       in the nested for loops in the .py file. By default, it runs 100 times the GA, distributed in 10 cores (change -c 10 for another number of cores).
       
-      **This step can be skipped since we provided [the results of 100 runs of the genetic algorithm using the LR count score](./data/GA-ICELLNET/)**
+      **This step can be skipped since we provided [the results of 100 runs of the genetic algorithm using the ICELLNET score](./data/GA-ICELLNET/)**
 15. [Examine results from the genetic algorithm (ICELLNET as CCI score), select ligand-receptor pairs and perform enrichment analysis on their functions.](./code/15.Examine-GA-ICELLNET.ipynb)
 16. [Compare GA-based selection of LR pairs by using Bray-Curtis score, LR Count score, or ICELLNET score](./code/16.CCI-Score-Comparison.ipynb)
 17. [Analyze spatial properties associated to the location type of each LR pair](./code/17.LR-Location-vs-CC-Distance-Heatmap.ipynb)
