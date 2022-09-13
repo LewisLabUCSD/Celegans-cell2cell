@@ -9,7 +9,7 @@
 
 ## Installation
 
-All the analyses in this repository can be run on a **CodeOcean capsule** for reproducible results (estimated running time: 2:20 hr): https://doi.org/10.24433/CO.4688840.v2
+All the analyses in this repository can be run on a **CodeOcean capsule** for reproducible results (estimated running time: 4:00 hr): https://doi.org/10.24433/CO.4688840.v2
 
 If you are interested in running everything ***locally***, follow the ***instructions below***.
 
