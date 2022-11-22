@@ -3,9 +3,9 @@
 ## How to cite:
 
 - Armingol E., Ghaddar A., Joshi C.J., Baghdassarian H., Shamie I., Chan J.,
- Her H.L., O’Rourke E.J., Lewis N.E. 
- [Inferring a spatial code of cell-cell interactions across a whole animal bodys](https://doi.org/10.1101/2020.11.22.392217).
-  *bioRxiv*, (2020). **DOI: https://doi.org/10.1101/2020.11.22.392217**
+  Her H.L., Berhanu S., Dar A., Rodriguez-Armstrong F., Yang O., O’Rourke E.J., Lewis N.E. 
+  [Inferring a spatial code of cell-cell interactions across a whole animal body](https://doi.org/10.1371/journal.pcbi.1010715).
+   *PLOS Computational Biology **18(11)**: e1010715*, (2022). **DOI: 10.1371/journal.pcbi.1010715**
 
 ## Installation
 
